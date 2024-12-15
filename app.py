@@ -7,6 +7,17 @@ from models.magazine import Magazine
 def main():
     # Initialize the database and create tables
     create_tables()
+    
+    author = Author(name="John Doe")
+    magazine = Magazine(name="Tech Monthly", category="Technology")
+    article = Article(title="AI Advances", content="Exploring the world of AI.", author_id=author.id, magazine_id=magazine.id)
+
+    # Fetch relationships
+    print(f"Articles by {author.name}:", author.get_articles())
+    print(f"Magazines featuring {author.name}:", author.get_magazines())
+    print(f"Articles in {magazine.name}:", magazine.get_articles())
+    print(f"Authors in {magazine.name}:", magazine.get_authors())
+
 
     # Collect user input
     author_name = input("Enter author's name: ")
