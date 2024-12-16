@@ -2,6 +2,9 @@ from database.connection import get_db_connection
 
 class Magazine:
     def __init__(self, id=None, name=None, category=None):
+        self.id = id
+        self.name = name
+        self.category = category
         if id:
             conn = get_db_connection()
             cursor = conn.cursor()

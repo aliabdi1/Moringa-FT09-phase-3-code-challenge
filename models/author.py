@@ -2,6 +2,8 @@ from database.connection import get_db_connection
 
 class Author:
     def __init__(self, id=None, name=None):
+        self.id = id
+        self.name = name
         if id:
             conn = get_db_connection()
             cursor = conn.cursor()
