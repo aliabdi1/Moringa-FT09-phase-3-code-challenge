@@ -1,7 +1,8 @@
-from .connection import get_db_connection
+from database.connection import get_db_connection
 
-def create_tables():
-    conn = get_db_connection()
+def create_tables(testing=False):
+    # Use in-memory database for testing if testing=True
+    conn = get_db_connection(testing=testing)
     cursor = conn.cursor()
     
     cursor.execute('''
